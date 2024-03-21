@@ -1,4 +1,4 @@
-:::mermaid
+```mermaid
 
     classDiagram
     class Servidor
@@ -15,4 +15,4 @@
     Usuario : +String email
     Usuario : -String senha
 
-:::
+```
