@@ -8,7 +8,7 @@
     Agendamento : +Date data
     Agendamento : +Usuario usuario
     Agendamento : +Servidor servidor
-    Agendamento : +CadAge(data, servidor, usuario)
+    Agendamento : +CadAge(data, servidor, usuario)[agendamento]
 
     class Usuario
     Usuario : +String username
