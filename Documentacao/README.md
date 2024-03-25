@@ -3,11 +3,11 @@
     classDiagram
     class Servidor
     Servidor : +String email
-    Servidor : +String username
     Servidor : -String senha
+    Servidor : -CadSer(username, emial, senha)[servidor]
     Servidor : +VisAge()[LisAge]
     Servidor : +MarDat()[CadDat]
-    Servidor : +DesMarDat()[ExcAge]
+    Servidor : -DesMarDat()[ExcAge]
 
     class Agendamento
     Agendamento : -ID
@@ -27,9 +27,11 @@
     class Usuario
     Usuario : +String username
     Usuario : +String nome
-    Usuario : +RelCad()[CadAge]
-    Usuario : +CanCad()[ExcCad]
+    Usuario : -CadUse(username, nome)[usuario]
+    Usuario : -RelCad()[CadAge]
+    Usuario : -CanCad()[ExcCad]
 
+    Usuario <|-- Servidor
     Servidor "1" <--> "n" Agendamento
     Usuario "1" <--> "1" Agendamento
 
