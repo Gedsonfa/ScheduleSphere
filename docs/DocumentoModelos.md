@@ -63,13 +63,20 @@
 ### Métodos
 
 getUsername()
+
 getNome()
+
 getId()
-cadUse()Cadastra o usuário.
-lisUse()Exibe um usuário, de acordo com o idUse solicitado.
-excUse()Deleta usuário.
-relAge()Realizar agendamento, chamando a função de cadastrar agendamento.
-canAge()Cancelar agendamento, chamando a função de exluir agendamento.
+
+* cadUse(): Cadastra o usuário.
+
+* lisUse(): Exibe um usuário, de acordo com o idUse solicitado.
+
+* excUse(): Deleta usuário.
+
+* relAge(): Realizar agendamento, chamando a função de cadastrar agendamento.
+
+* cadAge(): Cancelar agendamento, chamando a função de exluir agendamento.
 
 ### Metadados
 
@@ -101,13 +108,6 @@ A tabela 'Usuário' é ultilizada para manter informações dos usuários do sis
 ### Utilização
 
 **Suporte**: Para acesssar rapidamente as infromações do cliente durante as interações de suporte, melhorando a experiência do usuário.
-
-Agendamento : -Int idAge
-    Agendamento : +Date data
-    Agendamento : +Usuario usuario
-    Agendamento : +Servidor servidor
-    Agendamento : +String descricao
-    Agendamento : -Boolean ativo
 
 ## Tabela Agendamento
 
