@@ -9,7 +9,7 @@
     Servidor : +cadSer(username, emial, senha)servidor
     Servidor : +visAge()lisAge
     Servidor : +marDat()cadDat
-    Servidor : +desMarDat()excAge
+    Servidor : +desMarDat()libAge
 
     class Agendamento
     Agendamento : -BigInt idAge
@@ -24,7 +24,7 @@
     Agendamento : +cadAge(data, servidor, usuario, descricao, ativo)agendamento
     Agendamento : +lisAge(agendamento)Array
     Agendamento : +lisDat(agendamento.data)Array
-    Agendamento : +excAge(agendamento)data
+    Agendamento : +libAge(agendamento)data
     Agendamento : +excCad(idAge)
     Agendamento : +valDat(data, Array)Boolean
 
@@ -124,6 +124,14 @@ A tabela 'Usuário' é ultilizada para manter informações dos usuários do sis
 |descricao|VARCHAR(120)|Descrição sobre detalhes do agendamento|Não nulo|Planejamento da ceia de natal|
 |ativo|BOOLEAN|Verificador se o agendamento ainda está marcado|Indicador não nulo|1|
 
+### Métodos
+
+* cadAge(): Cadastra um agendamento.
+* lisAge(): Lista agendamentos.
+* lisDat(): Lista as datas disponíveis para agendamentos.
+* libAge(): Libera a vaga para agendamento.
+* excCad(): Desativa um agendamento já cadastrado.
+* valDat(): Verifica se a data ja é ocupada.
 
 ### Metadados
 
