@@ -30,4 +30,4 @@ Aquilo que precisar de validação terá.
 
 # Perfil de usuário
 
-Qualquer um que quiser gerênciar seus compromissos.
+Qualquer um que quiser gerênciar seu compromissos.
