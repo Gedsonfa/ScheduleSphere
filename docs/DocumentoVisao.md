@@ -8,10 +8,10 @@ Documento construído a partir do **Documento de Visao** que pode ser encontrado
 
 Membro     |     Papel   |   E-mail   |
 ---------  | ----------- | ---------- |
-Davi Natan     | Cliente     | davi.oliveira.137@ufrn.edu.br |
-Felippe Silva      | Desenvolvedor | felippe.silva.142@ufrn.edu.br |
-Gedson Fernandes      |  Desenvolvedor     | gedson.araujo.143@ufrn.edu.br|
-José Gabriel    | Gerente     | gabriel.dias.150@ufrn.edu.br|
+Davi Natan  | Cliente | davi.oliveira.137@ufrn.edu.br |
+Felippe Silva  | Desenvolvedor | felippe.silva.142@ufrn.edu.br |
+Gedson Fernandes  |  Desenvolvedor | gedson.araujo.143@ufrn.edu.br|
+José Gabriel  | Gerente | gabriel.dias.150@ufrn.edu.br|
 
 
 
@@ -36,27 +36,29 @@ Cliente | Este usuário é a pessoa que deseja marcar uma consulta / atendimento
 
 Requisito                                 | Descrição   | Ator |
 ---------                                 | ----------- | ---------- |
-RF01 - Cadastrar usuário |Permite o cadastro do usuário no sistema.  |  gerente |
-RF02 - Cadastrar Agendamento  | o usuário irá conseguir cadastrar seus horaríos de atendimento |  gerente |
-RF03 - Alterar Agendamento | o usuário poderá alterar o horario de atendimento caso ocorra algum imprevisto. |  gerente |
-RF04 - Excluir Agendamento | o usuário poderá exlcuir o horario de atendimento caso ocorra algum imprevisto. |  gerente |
-RF05 - Consultar  Agendamento |o usuário  poderá consultar horário marcados no dia solicitado.  |  gerente |
-RF06 - Cadastrar  Cliente | Permitir a edição dos dados do cliente no sistema. | cliente e gerente |
+RF01 - Cadastrar usuário | Permite o cadastro do usuário no sistema.  |  gerente |
+RF02 - Cadastrar Agendamento  | O usuário conseguirá cadastrar seus horaríos de atendimento |  gerente |
+RF03 - Alterar Agendamento | O usuário poderá alterar o horário de atendimento caso ocorra algum imprevisto. |  gerente |
+RF04 - Excluir Agendamento | O usuário poderá exlcuir o horário de atendimento caso ocorra algum imprevisto. |  gerente |
+RF05 - Consultar Agendamento |O usuário  poderá consultar horário marcados no dia solicitado.  |  gerente |
+RF06 - Cadastrar Cliente | Permitir a edição dos dados do cliente no sistema. | cliente e gerente |
 RF07 - Consultar Cliente | Permitir a pesquisa do cliente no sistema. | cliente e gerente |
 RF08 - Desativar Cliente | Permitir a desativação do cliente no sistema. | cliente e gerente |
-RF09 - Cadastrar  Horário  | o Cliente cadastrará o horario que lhe agradar, desde que esteja disponivel.  | Cliente e gerente  |
-RF10 - Alterar Horário  | o Cliente conseguirá alterar o horario cadastrado,caso deseje e esteja dispónivel o novo Horário | Cliente e gerente  |
-RF11 - Excluir Horário  | o Cliente conseguirá cancelar o Horário já cadastrado pelo propío | Cliente e Gerente |
-RF12 - Listar Horário  | o Gerente conseguirá ver os Horários ocupados pelos Cliente em determinada Data |  gerente  |
-RF13 - Validar  Data | Verifica se os Horários cadastrado no Agendamento estão disponíveis | Funcionário e gerente |
+RF09 - Cadastrar  Horário  | O cliente cadastrará o horário que lhe agradar, desde que esteja disponivel.  | Cliente e gerente  |
+RF10 - Alterar Horário  | O cliente conseguirá alterar o horário cadastrado,caso deseje e esteja dispónivel o novo horário | Cliente e gerente  |
+RF11 - Excluir Horário  | O cliente conseguirá cancelar o Horário já cadastrado pelo propío | Cliente e Gerente |
+RF12 - Listar Horário  | O gerente conseguirá ver os Horários ocupados pelos Cliente em determinada Data |  gerente  |
+RF13 - Validar Data | Verifica se os Horários cadastrado no Agendamento estão disponíveis | gerente |
 
 
 ## Lista de Requisitos Não Funcionais
 
+
 Requisito                                 | Descrição   |
 ---------                                 | ----------- |
-RNF01 - Estrutura Web | O sistema só funcionará caso haja conexão com a internet, pois foi   desenvolvido para ter acesso de diversos locais.  |
-RNF02 - Google Conta | o sistema só funcionará caso você conceda permissão para o Google Datas. |
+RNF01 - Estrutura Web | O sistema só funcionará caso haja conexão com a internet, pois será desenvolvido para ter acesso de diversos locais.  |
+RNF02 - Google Conta | O cliente deve ter uma conta google. |
+RNF03 - Permissão da Conta Google | O sistema só funcionará caso o cliente conceda permissão para o Google Datas. |
 
 
 ## Riscos
