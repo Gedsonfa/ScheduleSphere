@@ -8,6 +8,20 @@ Repositorio destinado para projeto da matéria DCT2302 -  ENGENHARIA DE SOFTWARE
 ## :memo: Descrição
 O ScheduleSphere tem como objetivo ser um sistema de agendamento de horários inteligente. O projeto registra horários para que outras pessoas possam reservar reuniões, além de permitir registros em agendas de terceiros. A aplicação tem camadas majoritariamente composta por front-end, com back-end implementado no mesmo arquivo e banco de dados SQL. 
 
+## 📑 Documentação
+
+[Geral](docs/)
+
+[User Stories](docs/DocumentacaoUserStories.md)
+
+[Arquitetrural](docs/DocumentoArquitetural.md)
+
+[Modelos](docs/DocumentoModelos.md)
+
+[Release](docs/DocumentoRelease.md)
+
+[Visão](docs/DocumentoVisao.md)
+
 ## :books: Funcionalidades
 * <b>Funcionalidade 1</b>: O ScheduleSphere é basicamente um calendário de agendamentos conectado ao Google Calendar do usuário.
 * <b>Funcionalidade 2</b>: O usuário pode criar uma conta e alterar suas informações sempre que logar na aplicação.
