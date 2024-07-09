@@ -1,21 +1,21 @@
-import { Button, Text, TextInput } from '@ignite-ui/react'
-import { Form, FormAnnotation } from './styles'
-import { ArrowRight } from 'phosphor-react'
-import { useForm } from 'react-hook-form'
-import { z } from 'zod'
-import { zodResolver } from '@hookform/resolvers/zod'
+import { Button, Text, TextInput } from "@ignite-ui/react";
+import { Form, FormAnnotation } from "./styles";
+import { ArrowRight } from "phosphor-react";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 const claimUsernameFormSchema = z.object({
   username: z
     .string()
-    .min(3, { message: 'Úsuario deve conter pelo menos 3 letras' })
+    .min(3, { message: "Úsuario deve conter no mínimo 3 letras" })
     .regex(/^([a-z\\-]+)$/i, {
-      message: 'Úsuario deve conter somente letras e hifens',
+      message: "Úsuario deve conter somente letras e hifens",
     })
     .transform((username) => username.toLowerCase()),
-})
+});
 
-type ClaimUsernameForm = z.infer<typeof claimUsernameFormSchema>
+type ClaimUsernameForm = z.infer<typeof claimUsernameFormSchema>;
 
 export function ClaimUsernameForm() {
   const {
@@ -24,10 +24,10 @@ export function ClaimUsernameForm() {
     formState: { errors },
   } = useForm<ClaimUsernameForm>({
     resolver: zodResolver(claimUsernameFormSchema),
-  })
+  });
 
   async function handleClaimUsername(data: ClaimUsernameForm) {
-    console.log(data)
+    console.log(data);
   }
 
   return (
@@ -37,7 +37,7 @@ export function ClaimUsernameForm() {
           size="sm"
           prefix="ignite.com/"
           placeholder="seu-usuario"
-          {...register('username')}
+          {...register("username")}
         />
         <Button size="sm" type="submit">
           Reservar
@@ -48,9 +48,9 @@ export function ClaimUsernameForm() {
         <Text size="sm">
           {errors.username
             ? errors.username.message
-            : 'Digite o nome de Úsuario desejado'}
+            : "Digite o nome de Úsuario desejado"}
         </Text>
       </FormAnnotation>
     </>
-  )
+  );
 }
