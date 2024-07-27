@@ -1,9 +1,9 @@
-import { Button, Text, TextInput } from "@ignite-ui/react";
-import { Form, FormAnnotation } from "./styles";
-import { ArrowRight } from "phosphor-react";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
+import { Button, Text, TextInput } from '@ignite-ui/react'
+import { Form, FormAnnotation } from './styles'
+import { ArrowRight } from 'phosphor-react'
+import { useForm } from 'react-hook-form'
+import { z } from 'zod'
+import { zodResolver } from '@hookform/resolvers/zod'
 import { useRouter } from 'next/router'
 
 const claimUsernameFormSchema = z.object({
@@ -14,9 +14,9 @@ const claimUsernameFormSchema = z.object({
       message: 'Usuário deve conter somente letras e hifens',
     })
     .transform((username) => username.toLowerCase()),
-});
+})
 
-type ClaimUsernameForm = z.infer<typeof claimUsernameFormSchema>;
+type ClaimUsernameForm = z.infer<typeof claimUsernameFormSchema>
 
 export function ClaimUsernameForm() {
   const {
@@ -25,7 +25,7 @@ export function ClaimUsernameForm() {
     formState: { errors },
   } = useForm<ClaimUsernameForm>({
     resolver: zodResolver(claimUsernameFormSchema),
-  });
+  })
 
   const router = useRouter()
 
@@ -41,7 +41,7 @@ export function ClaimUsernameForm() {
           size="sm"
           prefix="ignite.com/"
           placeholder="seu-usuario"
-          {...register("username")}
+          {...register('username')}
         />
         <Button size="sm" type="submit">
           Reservar
@@ -56,5 +56,5 @@ export function ClaimUsernameForm() {
         </Text>
       </FormAnnotation>
     </>
-  );
+  )
 }

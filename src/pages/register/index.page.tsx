@@ -1,9 +1,9 @@
-import { Button, Heading, MultiStep, Text, TextInput } from "@ignite-ui/react";
-import { Container, Form, FormError, Header } from "./styles";
-import { ArrowRight } from "phosphor-react";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
+import { Button, Heading, MultiStep, Text, TextInput } from '@ignite-ui/react'
+import { Container, Form, FormError, Header } from './styles'
+import { ArrowRight } from 'phosphor-react'
+import { useForm } from 'react-hook-form'
+import { z } from 'zod'
+import { zodResolver } from '@hookform/resolvers/zod'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 
@@ -15,10 +15,10 @@ const registerFormSchema = z.object({
       message: 'Usuário deve conter somente letras e hifens',
     })
     .transform((username) => username.toLowerCase()),
-  name: z.string().min(3, { message: "O nome deve conter no mínimo 3 letras" }),
-});
+  name: z.string().min(3, { message: 'O nome deve conter no mínimo 3 letras' }),
+})
 
-type RegisterFormData = z.infer<typeof registerFormSchema>;
+type RegisterFormData = z.infer<typeof registerFormSchema>
 
 export default function Register() {
   const {
@@ -28,8 +28,7 @@ export default function Register() {
     formState: { errors, isSubmitting },
   } = useForm<RegisterFormData>({
     resolver: zodResolver(registerFormSchema),
-  });
-
+  })
   const router = useRouter()
 
   useEffect(() => {
@@ -39,7 +38,7 @@ export default function Register() {
   }, [router.query?.username, setValue])
 
   async function handleRegister(data: RegisterFormData) {
-    console.log(data);
+    console.log(data)
   }
 
   return (
@@ -59,7 +58,7 @@ export default function Register() {
           <TextInput
             prefix="ignite.com/"
             placeholder="seu-usuario"
-            {...register("username")}
+            {...register('username')}
             crossOrigin={undefined}
           />
 
@@ -72,7 +71,7 @@ export default function Register() {
           <Text size="sm">Nome completo</Text>
           <TextInput
             placeholder="seu-nome"
-            {...register("name")}
+            {...register('name')}
             crossOrigin={undefined}
           />
 
@@ -87,5 +86,5 @@ export default function Register() {
         </Button>
       </Form>
     </Container>
-  );
+  )
 }
