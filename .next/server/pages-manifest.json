@@ -2,8 +2,8 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/": "pages/index.js",
   "/register": "pages/register.js",
-  "/api/users": "pages/api/users.js",
-  "/register/connect-calendar": "pages/register/connect-calendar.js"
+  "/": "pages/index.js",
+  "/api/auth/[...nextauth]": "pages/api/auth/[...nextauth].js",
+  "/api/users": "pages/api/users.js"
 }
