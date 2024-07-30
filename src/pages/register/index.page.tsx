@@ -1,3 +1,4 @@
+import React from "react";
 import { Button, Heading, MultiStep, Text, TextInput } from "@ignite-ui/react";
 import { Container, Form, FormError, Header } from "./styles";
 import { ArrowRight } from "phosphor-react";
