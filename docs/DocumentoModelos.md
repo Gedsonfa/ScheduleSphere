@@ -4,29 +4,27 @@
 
     classDiagram
     class Servidor
+    Servidor : -BigInt idServ
     Servidor : -String email
     Servidor : -String senha
-    Servidor : +cadSer(username, emial, senha)servidor
+    Servidor : +cadSer(username, email, senha)servidor
+    Servidor: altServ(idSer)Serv
+    Servidor : -gerIdServ(idServ)idServ
+    Servidor : +getId()idServ
     Servidor : +visAge()lisAge
     Servidor : +marDat()cadDat
     Servidor : +desMarDat()libAge
 
     class Agendamento
     Agendamento : -BigInt idAge
-    Agendamento : -Date data
-    Agendamento : -Usuario usuario
-    Agendamento : -Servidor servidor
-    Agendamento : -String descricao
     Agendamento : -Boolean ativo
-    Agendamento : -gerIdAge(idAde)idAge
+    Agendamento : -gerIdAge(idAge)idAge
     Agendamento : +getId()idAge
-    Agendamento : +cadDat(data)Array
-    Agendamento : +cadAge(data, servidor, usuario, descricao, ativo)agendamento
+    Agendamento : +cadAge(data, servico, ativo)agendamento
     Agendamento : +lisAge(agendamento)Array
-    Agendamento : +lisDat(agendamento.data)Array
     Agendamento : +libAge(agendamento)data
     Agendamento : +excCad(idAge)
-    Agendamento : +valDat(data, Array)Boolean
+
 
     class Usuario
     Usuario : -BigInt idUse
@@ -43,10 +41,38 @@
     Usuario : +excUse(idUse)
     Usuario : +relAge()cadAge
     Usuario : +canAge()excCad
+    Usuario: altUse(idUse)Use
+
+    class Servico
+    Servico : -BigInt idSer
+    Servico : -Usuario usuario
+    Servico : -Servidor servidor
+    Servico : -String descricao
+    Servico : -gerIdSer(idAde)idSer
+    Servico : +getId()idSer
+    Servico : +cadSer(servidor, usuario, descricao)
+    Servico : +lisSer(idaSer)servico
+    Servico : excSer(idSer)
+    Servico : altSer(idSer)Ser
+
+
+    class Data
+    Data : -BigInt idDat
+    Data : -Date horarioIni
+    Data : -Date horarioTer
+    Data : -gerIdSer(idAde)idSer
+    Data : +getId()idSer
+    Data : +cadDat(horarioIni, horarioTer)
+    Data : +lisDat(idDat)data
+    Data : +getDatIni()horarioIni
+    Data : +getDatTer()horarioTer
+
 
     Usuario <|-- Servidor
-    Servidor "1" <--> "n" Agendamento
-    Usuario "1" <--> "1" Agendamento
+    Servico "n" <--> "1" Servidor
+    Servico "n" <--> "n" Usuario
+    Data "1" <--> "1" Agendamento
+    Agendamento "n" <--> "n" Servico
 
 ```
 
