@@ -59,7 +59,7 @@ export default function Register() {
   return (
     <Container>
       <Header>
-        <Heading as="strong"> Bem-vindo ao Ignite Call!</Heading>
+        <Heading as="strong"> Bem-vindo ao Tá marcado!</Heading>
         <Text>
           Conecte seu calendário e permita que as pessoas marquem agendamentos
           no seu tempo livre.
