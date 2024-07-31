@@ -19,6 +19,6 @@ export const ConnectItem = styled('div', {
 })
 
 export const AuthError = styled(Text, {
-  color: '#f75a68',
+  color: '#f75168',
   marginBottom: '$2',
 })
