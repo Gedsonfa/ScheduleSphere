@@ -2,6 +2,7 @@ import { Avatar, Heading, Text } from '@ignite-ui/react'
 import { Container, UserHeader } from './styles'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { prisma } from '../../../lib/prisma'
+import { ScheduleForm } from './ConfirmStep'
 
 interface ScheduleProps {
   user: {
@@ -19,6 +20,7 @@ export default function Schedule({ user }: ScheduleProps) {
         <Heading>{user.name}</Heading>
         <Text>{user.bio}</Text>
       </UserHeader>
+      <ScheduleForm />
     </Container>
   )
 }
@@ -49,7 +51,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     props: {
       user: {
         name: user.name,
-        bio: user.bio,
+        bio:user.bio,
         avatarUrl: user.avatar_url,
       },
     },
