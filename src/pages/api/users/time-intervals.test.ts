@@ -1,5 +1,5 @@
 import { describe, it, expect, vi } from 'vitest'
-import handler from './profile.api'
+import handler from './time-intervals.api'
 import { prisma } from '../../../lib/prisma'
 import { getServerSession } from 'next-auth'
 import { NextApiRequest, NextApiResponse } from 'next'
@@ -10,13 +10,13 @@ vi.mock('next-auth', () => ({
 
 vi.mock('../../../lib/prisma', () => ({
   prisma: {
-    user: {
-      update: vi.fn(),
+    userTimeInterval: {
+      create: vi.fn(),
     },
   },
 }))
 
-describe('Profile API Handler', () => {
+describe('Time Intervals API Handler', () => {
   const mockReq = (method: string, body?: any) => ({
     method,
     body,
@@ -31,7 +31,7 @@ describe('Profile API Handler', () => {
     return res as unknown as NextApiResponse
   }
 
-  it('should return 405 if method is not PUT', async () => {
+  it('should return 405 if method is not POST', async () => {
     const req = mockReq('GET')
     const res = mockRes()
 
@@ -42,7 +42,7 @@ describe('Profile API Handler', () => {
   })
 
   it('should return 401 if session is not present', async () => {
-    const req = mockReq('PUT', { bio: 'New bio' })
+    const req = mockReq('POST', { intervals: [] })
     const res = mockRes()
 
     vi.mocked(getServerSession).mockResolvedValueOnce(null)
@@ -53,8 +53,8 @@ describe('Profile API Handler', () => {
     expect(res.end).toHaveBeenCalled()
   })
 
-  it('should return 400 if bio is not valid', async () => {
-    const req = mockReq('PUT', { bio: 123 }) 
+  it('should return 400 if intervals are not valid', async () => {
+    const req = mockReq('POST', { intervals: [{ weekDay: 'Monday', startTimeInMinutes: 60, endTimeInMinutes: 120 }] }) // weekDay should be a number
     const res = mockRes()
 
     vi.mocked(getServerSession).mockResolvedValueOnce({
@@ -70,8 +70,13 @@ describe('Profile API Handler', () => {
     })
   })
 
-  it('should update the user bio and return 204', async () => {
-    const req = mockReq('PUT', { bio: 'Updated bio' })
+  it('should create time intervals and return 201', async () => {
+    const req = mockReq('POST', {
+      intervals: [
+        { weekDay: 1, startTimeInMinutes: 60, endTimeInMinutes: 120 },
+        { weekDay: 2, startTimeInMinutes: 90, endTimeInMinutes: 150 },
+      ],
+    })
     const res = mockRes()
 
     vi.mocked(getServerSession).mockResolvedValueOnce({
@@ -80,12 +85,25 @@ describe('Profile API Handler', () => {
 
     await handler(req, res)
 
-    expect(prisma.user.update).toHaveBeenCalledWith({
-      where: { id: '1' },
-      data: { bio: 'Updated bio' },
+    expect(prisma.userTimeInterval.create).toHaveBeenCalledTimes(2)
+    expect(prisma.userTimeInterval.create).toHaveBeenCalledWith({
+      data: {
+        week_day: 1,
+        time_start_in_minutes: 60,
+        time_end_in_minutes: 120,
+        user_id: '1',
+      },
+    })
+    expect(prisma.userTimeInterval.create).toHaveBeenCalledWith({
+      data: {
+        week_day: 2,
+        time_start_in_minutes: 90,
+        time_end_in_minutes: 150,
+        user_id: '1',
+      },
     })
 
-    expect(res.status).toHaveBeenCalledWith(204)
+    expect(res.status).toHaveBeenCalledWith(201)
     expect(res.end).toHaveBeenCalled()
   })
 })

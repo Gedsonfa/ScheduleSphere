@@ -26,16 +26,29 @@ export default async function handler(
     return res.status(401).end()
   }
 
-  const { bio } = updateProfileBodySchema.parse(req.body)
+  try {
+    const { bio } = updateProfileBodySchema.parse(req.body)
 
-  await prisma.user.update({
-    where: {
-      id: session.user.id,
-    },
-    data: {
-      bio,
-    },
-  })
+    await prisma.user.update({
+      where: {
+        id: session.user.id,
+      },
+      data: {
+        bio,
+      },
+    })
 
-  return res.status(204).end()
+    return res.status(204).end()
+  } catch (error) {
+    if (error instanceof z.ZodError) {
+      return res.status(400).json({
+        message: 'Invalid request data',
+        errors: error.errors, // Inclui os detalhes do erro de validação
+      })
+    }
+
+    return res.status(500).json({
+      message: 'Internal server error',
+    })
+  }
 }
