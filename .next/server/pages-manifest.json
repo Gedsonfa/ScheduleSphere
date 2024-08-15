@@ -3,9 +3,12 @@
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
   "/register": "pages/register.js",
-  "/register/connect-calendar": "pages/register/connect-calendar.js",
   "/api/auth/[...nextauth]": "pages/api/auth/[...nextauth].js",
-  "/register/timer-intervals": "pages/register/timer-intervals.js",
+  "/register/connect-calendar": "pages/register/connect-calendar.js",
+  "/register/time-intervals": "pages/register/time-intervals.js",
+  "/api/users": "pages/api/users.js",
   "/api/users/time-intervals": "pages/api/users/time-intervals.js",
-  "/register/update-profile": "pages/register/update-profile.js"
+  "/register/update-profile": "pages/register/update-profile.js",
+  "/api/users/profile": "pages/api/users/profile.js",
+  "/schedule/[username]": "pages/schedule/[username].js"
 }

@@ -22,20 +22,30 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
+    "/register": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/register.js"
+    ],
     "/register/connect-calendar": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
       "static/chunks/pages/register/connect-calendar.js"
     ],
-    "/register/timer-intervals": [
+    "/register/time-intervals": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/register/timer-intervals.js"
+      "static/chunks/pages/register/time-intervals.js"
     ],
     "/register/update-profile": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
       "static/chunks/pages/register/update-profile.js"
+    ],
+    "/schedule/[username]": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/schedule/[username].js"
     ]
   },
   "ampFirstPages": []
