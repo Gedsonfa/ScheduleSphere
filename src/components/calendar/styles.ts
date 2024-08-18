@@ -15,7 +15,7 @@ justifyContent: 'space-between',
 
 export const CalendarTittle = styled(Text, {
 fontWeight: '$medium',
-
+textTransform: 'capitalize',
 span: {
 color: '$gray200',
 },
